@@ -1,0 +1,12 @@
+.wgm-gameList {
+    background-color: #464646;
+    &__list {
+        dock: top;
+        flexDirection: column;
+        alignContent: space-between;
+        color: #ffffff;
+    }
+    &__button {
+        dock: bottom;
+    }
+}
