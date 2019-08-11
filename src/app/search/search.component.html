@@ -4,9 +4,9 @@
 
 
 <DockLayout>
-    <button dock="bottom" class="btn btn-primary btn-active" backgroundColor="red" text="Next" (tap)="next()")></button>
+    <button dock="bottom" class="btn btn-primary btn-active" backgroundColor="red" text="Next" (tap)="next()"></button>
 
-    <FlexboxLayout dock="top" flexDirection="column" alignContent="space-between" >
+    <FlexboxLayout dock="top" flexDirection="column" alignContent="space-between">
         <ListView [items]="karten" class="list-group">
             <ng-template let-item="item">
                 <StackLayout orientation="horizontal" class="list-group-item">
