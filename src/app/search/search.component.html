@@ -1,8 +1,18 @@
 <ActionBar class="action-bar">
-    <Label class="action-bar-title" text="Search"></Label>
+    <Label class="action-bar-title" text="Laufende Runde"></Label>
 </ActionBar>
 
-<GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf002;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+
+<DockLayout>
+    <button dock="bottom" class="btn btn-primary btn-active" backgroundColor="red" text="Next" (tap)="next()")></button>
+
+    <FlexboxLayout dock="top" flexDirection="column" alignContent="space-between" >
+        <ListView [items]="karten" class="list-group">
+            <ng-template let-item="item">
+                <StackLayout orientation="horizontal" class="list-group-item">
+                    <Label [text]='item.name'></Label>
+                </StackLayout>
+            </ng-template>
+        </ListView>
+    </FlexboxLayout>
+</DockLayout>
