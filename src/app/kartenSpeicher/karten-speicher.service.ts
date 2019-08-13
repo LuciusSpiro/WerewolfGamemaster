@@ -58,7 +58,7 @@ export class KartenSpeicherService {
         text: "Das kleine Mädchen darf nachts in der Werwolf-Phase heimlich blinzeln, um so die Werwölfe zu erkennen. Die Werwölfe ihrerseits hingegen achten natürlich darauf, das Mädchen dabei zu ertappen, es besteht also beim Blinzeln ein gewisses Risiko.",
         position: 0,
         gut: true,
-        path: "~/assets/kleinesmaedchen.png"
+        path: "~/assets/kleinemaedchen.png"
       },
       {
         name: "Seherin",

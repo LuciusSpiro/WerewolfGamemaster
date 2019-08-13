@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Karte } from "./Karte"
+import { KartenSpeicherService } from "../kartenSpeicher/karten-speicher.service";
 
 @Component({
     selector: "Browse",
@@ -8,38 +9,11 @@ import { Karte } from "./Karte"
 })
 export class BrowseComponent implements OnInit {
     cards: Array<Karte>;
-    constructor() {
-        // Use the component constructor to inject providers.
+    constructor(private kartenSpeicher: KartenSpeicherService) {
+        
     }
     ngOnInit(): void {
-     this.cards = [
-        {
-            name: "Werwolf",
-            text: "Werwölfe fressen kleine Kinder.",
-            position: 1,
-            gut: false,
-            path: "~/assets/werwolf.png"
-        }, {
-
-            name: "Dorfbewohner",
-            text: "Dorfbewohner hängen unschuldige Leute auf.",
-            position: 0,
-            gut: true,
-            path: "~/assets/dorfbewohner.png"
-        }, {
-            name: "Seherin",
-            text: "Die Seherin kann pro Runde einen Spieler auf gut oder böse untersuchen.",
-            position: 3,
-            gut: true,
-            path: "~/assets/seherin.png"
-        }, {
-            name: "Hexe",
-            text: "Die Hexe kann jeweils einmalig einen Heiltrank und einen Gifttrank einsetzen.",
-            position: 2,
-            gut: true,
-            path: "~/assets/hexe.png"
-        }
-    ];
+     this.cards = this.kartenSpeicher.getAllCards();
 
     }
 }
