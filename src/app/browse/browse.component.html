@@ -2,6 +2,7 @@
     <Label class="action-bar-title" text="Browse"></Label>
 </ActionBar>
 
-<FlexboxLayout *ngFor="let card of cards" width="300" height="300" backgroundColor="lightgray">
-    <Image [src]="card.path"  stretch="none" width="50px"></Image>
-  </FlexboxLayout>
+<FlexboxLayout backgroundColor="lightgray" alignContent="space-around" alignItems="center" flexWrap="wrap" justifyContent="space-around">
+    <Image height="600px" *ngFor="let card of cards" [src]="card.path"  stretch="fill" width="600px"></Image>
+</FlexboxLayout >asdf
+
