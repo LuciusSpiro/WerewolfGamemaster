@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Karte } from "./Karte"
+import { Karte } from "./Karte";
 
 @Component({
     selector: "Browse",
@@ -43,4 +43,3 @@ export class BrowseComponent implements OnInit {
 
     }
 }
-
