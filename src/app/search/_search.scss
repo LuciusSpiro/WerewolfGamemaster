@@ -9,4 +9,15 @@
     &__button {
         dock: bottom;
     }
+    &__name {
+        width: 30%;
+    }
+    &__amount {
+        width: 50%;
+        vertical-align: center;
+    }
+    &__kill-button {
+        width: 20%;
+        background-color: brown;
+    }
 }

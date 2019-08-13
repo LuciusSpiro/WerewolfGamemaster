@@ -4,4 +4,5 @@ export interface Ikarten {
     position: number;
     gut: boolean;
     path: string;
+    anzahl: number;
 }

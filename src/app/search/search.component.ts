@@ -10,7 +10,6 @@ import { Ikarten } from "../interface/iKarten";
 export class SearchComponent implements OnInit {
     karten: Array<Ikarten>;
     constructor(private kartenSpeicher: KartenSpeicherService) {
-       
     }
 
     ngOnInit() {
@@ -22,8 +21,23 @@ export class SearchComponent implements OnInit {
 
     next() {
         let first = this.karten.shift();
-        if (first.position >= 0) {
+        if (first && first.position >= 0) {
             this.karten.push(first);
         }
+    }
+    killPerson(karte: Ikarten) {
+        karte.anzahl -=1;
+        if (karte.anzahl === 0) {
+            this.karten = this.karten.filter((item) => {
+                return item.anzahl !== 0;
+            });
+        }
+    }
+    getAnzahl(karte: Ikarten): string {
+        if (karte.anzahl > 1) {
+            return "" + karte.anzahl;
+        }
+
+        return "";
     }
 }
