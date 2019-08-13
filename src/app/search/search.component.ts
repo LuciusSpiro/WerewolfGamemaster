@@ -10,16 +10,13 @@ import { Ikarten } from "../interface/iKarten";
 export class SearchComponent implements OnInit {
     karten: Array<Ikarten>;
     constructor(private kartenSpeicher: KartenSpeicherService) {
-        
+       
     }
 
     ngOnInit() {
+        this.karten = new Array<Ikarten>();
         this.karten = this.kartenSpeicher.getAllCards();
-        for (let i of this.karten) {
-            if (i.position === 0) {
-                delete this.karten[this.karten.indexOf(i)];
-            }
-        }
+        this.karten = this.karten.filter((a) => a.position !== 0);
         this.karten.sort((a1, a2) => a1.position - a2.position);
     }
 
