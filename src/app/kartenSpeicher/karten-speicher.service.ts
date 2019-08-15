@@ -8,8 +8,10 @@ export class KartenSpeicherService {
 
   test: Array<Ikarten>;
   alleKarten: Array<Ikarten>;
+  naechstesSpiel: Array<Ikarten>;
         
   constructor() {
+    this.naechstesSpiel = [];
     this.alleKarten = [
       {
         name: "Dorfbewohner",
@@ -72,6 +74,18 @@ export class KartenSpeicherService {
 
   getAllCards(): Array<Ikarten> {
     return this.alleKarten;
+  }
+
+  addKarte(name: string): void {
+    let karte: Ikarten;
+
+    for (let k of this.alleKarten) {
+      if (k.name === name) {
+        karte = k;
+      }
+    }
+
+    this.naechstesSpiel.push(karte);
   }
 
 }
