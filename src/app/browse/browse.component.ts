@@ -26,8 +26,10 @@ export class BrowseComponent implements OnInit {
         let card = args.object.get("id");
 
         if (card === "DorfbewohnerPlus") {
+            this.kartenSpeicher.addKarte("Dorfbewohner");
             this.anzahlDorfbewohner++;
         } else {
+            this.kartenSpeicher.addKarte("Werwolf");
             this.anzahlWerwolf++;
         }
     }
@@ -50,8 +52,11 @@ export class BrowseComponent implements OnInit {
         if (card === "Werwolf" || card === "Dorfbewohner") {
             if (card === "Werwolf") {
                 this.anzahlWerwolf++;
+                this.kartenSpeicher.addKarte(card);
             } else {
                 this.anzahlDorfbewohner++;
+                this.kartenSpeicher.addKarte(card);
+
             }
         } else {
             if (!a) {
@@ -62,6 +67,6 @@ export class BrowseComponent implements OnInit {
                 this.kartenSpeicher.removeKarte(card);
             }
         }
-        
+        console.log(this.kartenSpeicher.toNameList());
     }
 }

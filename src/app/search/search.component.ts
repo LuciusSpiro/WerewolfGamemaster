@@ -13,8 +13,7 @@ export class SearchComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.karten = new Array<Ikarten>();
-        this.karten = this.kartenSpeicher.naechstesSpiel;
+        this.karten = this.kartenSpeicher.getNextGame();
         this.karten = this.karten.filter((a) => a.position !== 0);
         this.karten.sort((a1, a2) => a1.position - a2.position);
     }
@@ -24,10 +23,12 @@ export class SearchComponent implements OnInit {
         if (first && first.position >= 0) {
             this.karten.push(first);
         }
+        console.log("===========================================");
+        console.log(this.karten);
     }
     killPerson(karte: Ikarten) {
         karte.anzahl -=1;
-        if (karte.anzahl === 0) {
+        if (karte.anzahl <= 0) {
             this.karten = this.karten.filter((item) => {
                 return item.anzahl !== 0;
             });

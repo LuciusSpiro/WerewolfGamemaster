@@ -27,7 +27,7 @@ export class KartenSpeicherService {
         position: 1,
         gut: false,
         path: "~/assets/werwolf.png",
-        anzahl: 2
+        anzahl: 1
       },
       {
         name: "Hexe",
@@ -66,7 +66,7 @@ export class KartenSpeicherService {
         text: "Das kleine Mädchen darf nachts in der Werwolf-Phase heimlich blinzeln, um so die Werwölfe zu erkennen. Die Werwölfe ihrerseits hingegen achten natürlich darauf, das Mädchen dabei zu ertappen, es besteht also beim Blinzeln ein gewisses Risiko.",
         position: 0,
         gut: true,
-        path: "~/assets/kleinesmaedchen.png",
+        path: "~/assets/kleinemaedchen.png",
         anzahl: 1
       },
       {
@@ -84,6 +84,14 @@ export class KartenSpeicherService {
     return this.alleKarten;
   }
 
+  getNextGame(): Array<Ikarten> {
+    return this.naechstesSpiel;
+  }
+
+  resetGame(): void {
+    this.naechstesSpiel = [];
+  }
+
   addKarte(name: string): void {
     let karte: Ikarten;
 
@@ -92,8 +100,20 @@ export class KartenSpeicherService {
         karte = k;
       }
     }
-
-    this.naechstesSpiel.push(karte);
+    if (name === "Werwolf" || name === "Dorfbewohner") {
+      let found = false;
+      for (let k of this.naechstesSpiel) {
+        if (k.name === name) {
+          k.anzahl++;
+          found = true;
+        }
+      }
+      if (!found) {
+        this.naechstesSpiel.push(karte);
+      }
+    } else {
+      this.naechstesSpiel.push(karte);
+    }
   }
 
   nextGameContains(name: string): boolean {
@@ -107,13 +127,24 @@ export class KartenSpeicherService {
   }
 
   removeKarte(name: string): void {
-    this.naechstesSpiel = this.naechstesSpiel.filter((a) => a.name !== name);
+    if (name === "Werwolf" || name === "Dorfbewohner") {
+      for (const k of this.naechstesSpiel) {
+        if (k.name === name) {
+          k.anzahl--;
+          if (k.anzahl === 0) {
+            this.naechstesSpiel = this.naechstesSpiel.filter((a) => a.name !== name);
+          }
+        }
+      }
+    } else {
+      this.naechstesSpiel = this.naechstesSpiel.filter((a) => a.name !== name);
+    }
   }
 
   toNameList(): string {
     let res = "";
     for (let k of this.naechstesSpiel) {
-      res = res + k.name;
+      res = res + " " + k.name;
     }
 
     return res;
