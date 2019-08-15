@@ -13,7 +13,7 @@ export class KartenSpeicherService {
     this.alleKarten = [
       {
         name: "Dorfbewohner",
-        text: "Ein einfacher Bewohner des Dorfes ohne Sonderfähigkeiten",
+        text: "Ein einfacher Bewohner des Dorfes ohne Sonderfähigkeiten.",
         position: 99,
         gut: true,
         path: "~/assets/dorfbewohner.png"

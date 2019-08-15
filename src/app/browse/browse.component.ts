@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Karte } from "./Karte"
+import { Karte } from "./Karte";
 import { KartenSpeicherService } from "../kartenSpeicher/karten-speicher.service";
 
 @Component({

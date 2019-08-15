@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { RouterExtensions } from "nativescript-angular/router";
+import { KartenSpeicherService } from "~/app/kartenSpeicher/karten-speicher.service";
+import { Ikarten } from "~/app/interface/iKarten";
 
 @Component({
     selector: "KartenDetail",
@@ -9,10 +10,31 @@ import { RouterExtensions } from "nativescript-angular/router";
 })
 
 export class KartenDetailComponent implements OnInit {
-
-    constructor(private _route: ActivatedRoute) { }
+    name: string;
+    path: string;
+    text: string;
+    karte: Ikarten;
+    gesinnung: string;
+    constructor(private _route: ActivatedRoute, private kartenSpeicher: KartenSpeicherService) { }
 
     ngOnInit(): void {
-        console.log(this._route.snapshot.params.id);
+        this.name = this._route.snapshot.params.id;
+        let karten = this.kartenSpeicher.getAllCards();
+        console.log(this.name);
+        for (var k of karten) {
+            console.log(k.name);
+            if (this.name === k.name) {
+                this.karte = k;
+                console.log(k);
+            }
+        }
+        if (this.karte.gut) {
+            this.gesinnung = "gute";
+        } else {
+            this.gesinnung = "böse";
+        }
+        this.path = this.karte.path;
+        this.text = this.karte.text;
     }
+
 }
