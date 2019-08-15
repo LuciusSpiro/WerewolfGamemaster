@@ -88,7 +88,7 @@ export class KartenSpeicherService {
     this.naechstesSpiel.push(karte);
   }
 
-  public nextGameContains(name: string): boolean {
+  nextGameContains(name: string): boolean {
     for (let k of this.naechstesSpiel) {
       if (k.name === name) {
         return true;
@@ -100,5 +100,14 @@ export class KartenSpeicherService {
 
   removeKarte(name: string): void {
     this.naechstesSpiel = this.naechstesSpiel.filter((a) => a.name !== name);
+  }
+
+  toNameList(): string {
+    let res = "";
+    for (let k of this.naechstesSpiel) {
+      res = res + k.name;
+    }
+
+    return res;
   }
 }

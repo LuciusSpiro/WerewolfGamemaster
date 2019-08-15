@@ -21,7 +21,7 @@ export class KartenDetailComponent implements OnInit {
         this.name = this._route.snapshot.params.id;
         let karten = this.kartenSpeicher.getAllCards();
         console.log(this.name);
-        for (var k of karten) {
+        for (let k of karten) {
             console.log(k.name);
             if (this.name === k.name) {
                 this.karte = k;

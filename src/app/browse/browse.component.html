@@ -6,6 +6,10 @@
     <AbsoluteLayout  *ngFor="let card of cards">
         <Image height="600px"  [src]="card.path"  stretch="fill" width="600px" (tap)="tapKarte($event)" [id]="card.name"></Image>
         <Image [nsRouterLink]="['../item', card.name]" src="~/assets/info.png" left="500px" top="25px" heigth="75px" width="75px"></Image>
+        <Button [id]="card.name + 'Plus'" (tap)="tapPlus($event)" text="+" top="400px" width="200px" [visibility]="card.name=='Werwolf' || card.name=='Dorfbewohner' ? 'visible' : 'hidden'"></Button>
+        <Button [id]="card.name + 'Minus'" (tap)="tapMinus($event)" text="-" top="400px" left="400px" width="200px" [visibility]="card.name=='Werwolf' || card.name=='Dorfbewohner' ? 'visible' : 'hidden'"></Button>
+        <TextField backgroundColor="lightgray" textAlignment="center" keyboardType="number" [text]="card.name=='Werwolf'  ? anzahlWerwolf : (card.name=='Dorfbewohner' ? anzahlDorfbewohner : '')" top="400px" left="200px" width="200px" [visibility]="card.name=='Werwolf' || card.name=='Dorfbewohner' ? 'visible' : 'hidden'"></TextField>
+
     </AbsoluteLayout>
 </FlexboxLayout >
 
