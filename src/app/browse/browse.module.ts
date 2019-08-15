@@ -3,6 +3,7 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { BrowseRoutingModule } from "./browse-routing.module";
 import { BrowseComponent } from "./browse.component";
+import { KartenDetailComponent } from "./karten-detail/karten-detail.component";
 
 @NgModule({
     imports: [
@@ -10,7 +11,8 @@ import { BrowseComponent } from "./browse.component";
         BrowseRoutingModule
     ],
     declarations: [
-        BrowseComponent
+        BrowseComponent,
+        KartenDetailComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
