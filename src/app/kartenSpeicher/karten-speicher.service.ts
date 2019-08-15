@@ -88,4 +88,17 @@ export class KartenSpeicherService {
     this.naechstesSpiel.push(karte);
   }
 
+  public nextGameContains(name: string): boolean {
+    for (let k of this.naechstesSpiel) {
+      if (k.name === name) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  removeKarte(name: string): void {
+    this.naechstesSpiel = this.naechstesSpiel.filter((a) => a.name !== name);
+  }
 }
