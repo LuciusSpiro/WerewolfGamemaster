@@ -61,12 +61,18 @@ export class BrowseComponent implements OnInit {
         } else {
             if (!a) {
                 this.kartenSpeicher.addKarte(card);
-                args.object.set("tintColor", "rgba(50,50,50,0.7)");
+                //args.object.set("tintColor", "rgba(50,50,50,0.7)");
             } else {
-                args.object.set("tintColor", "rgba(50,50,50,0)");
+                //args.object.set("tintColor", "rgba(50,50,50,0)");
                 this.kartenSpeicher.removeKarte(card);
             }
         }
-        console.log(this.kartenSpeicher.toNameList());
+        //console.log(this.kartenSpeicher.toNameList());
+    }
+
+    newGame() {
+        this.kartenSpeicher.resetGame();
+        this.anzahlDorfbewohner = 0;
+        this.anzahlWerwolf = 0;
     }
 }
