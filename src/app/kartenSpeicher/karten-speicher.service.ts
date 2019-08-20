@@ -82,4 +82,10 @@ export class KartenSpeicherService {
     return this.alleKarten;
   }
 
+  getKarte(name){
+    return this.alleKarten.find((karte) => {
+      return karte.name === name;
+    })
+  }
+
 }
