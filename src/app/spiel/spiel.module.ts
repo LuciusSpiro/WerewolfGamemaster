@@ -4,11 +4,13 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { SpielRoutingModule } from "./spiel-routing.module";
 import { SpielComponent } from "./spiel.component";
 import { SpielDetailComponent } from "./spiel-detail/spiel-detail.component";
+import { KartenDetailModule } from "../karten-detail/karten-detail.module";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        SpielRoutingModule
+        SpielRoutingModule,
+        KartenDetailModule
     ],
     declarations: [
         SpielComponent,

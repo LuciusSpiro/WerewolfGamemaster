@@ -4,11 +4,13 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { StartRoutingModule } from "./start-routing.module";
 import { StartComponent } from "./start.component";
 import { StartDetailComponent } from "./start-detail/start-detail.component";
+import { KartenDetailModule } from "../karten-detail/karten-detail.module";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        StartRoutingModule
+        StartRoutingModule,
+        KartenDetailModule
     ],
     declarations: [
         StartComponent,
