@@ -9,12 +9,13 @@
     <FlexboxLayout class="wgm-gameList__list">
         <ListView [items]="karten" class="list-group">
             <ng-template let-item="item">
-                <FlexboxLayout height="100px" alignContent="center" justifyContent="space-between" [nsRouterLink]="['../karte', item.name]">
-                    <Label [text]='item.name' verticalAlignment="center" marginTop="35px" marginLeft="35px"></Label>
-                    <Label [text]='getAnzahl(item)' verticalAlignment="center" marginTop="35px"></Label>
-                    <button class="wgm-gameList__kill-button wgm-gameList__item" text="Tod" (tap)="killPerson(item)"></button>
+                <FlexboxLayout height="100px" alignContent="center" [justifyContent]="item.name === 'Dorfbewohner' ? 'center' : 'space-between'" [nsRouterLink]="['../karte', item.name]">
+                    <Label [text]='item.name' *ngIf="item.name !== 'Dorfbewohner'" marginTop="35px" marginLeft="35px"></Label>
+                    <Label [text]='getAnzahl(item)' *ngIf="item.name !== 'Dorfbewohner'" marginTop="35px"></Label>
+                    <button class="wgm-gameList__kill-button wgm-gameList__item" *ngIf="item.name !== 'Dorfbewohner'" text="Tod" (tap)="killPerson(item)"></button>
+                    <Label text='Ein neuer Tag bricht an' *ngIf="item.name === 'Dorfbewohner'" marginTop="35px"></Label>
                 </FlexboxLayout>
             </ng-template>
         </ListView>
     </FlexboxLayout>
-</DockLayout>
+</DockLayout>git s
