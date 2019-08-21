@@ -83,6 +83,7 @@ export class StartComponent implements OnInit {
     }
 
     startGame(): void {
+        this.kartenSpeicher.startGame();
         this.appComponent.tabView.nativeElement.selectedIndex = 2;
     }
 }
