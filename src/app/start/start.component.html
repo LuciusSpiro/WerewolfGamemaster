@@ -4,7 +4,7 @@
 
 <DockLayout class="wgm-gameList">
     <Button text="neues Spiel" dock="top" (tap)="newGame()"></Button>
-    <Button text="Spiel starten!" dock="bottom"></Button>
+    <Button text="Spiel starten!" (tap)="startGame()" dock="bottom"></Button>
     <ScrollView>
         <FlexboxLayout backgroundColor="lightgray" alignContent="space-around" alignItems="center" flexWrap="wrap" justifyContent="space-around">
             <AbsoluteLayout *ngFor="let card of cards">

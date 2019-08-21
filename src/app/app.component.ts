@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { isAndroid } from "tns-core-modules/platform";
 
 @Component({
@@ -8,6 +8,8 @@ import { isAndroid } from "tns-core-modules/platform";
     styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements OnInit {
+
+    @ViewChild("tabView", { read: ElementRef, static: false }) tabView: ElementRef;
 
     constructor() {
         // Use the component constructor to inject providers.
