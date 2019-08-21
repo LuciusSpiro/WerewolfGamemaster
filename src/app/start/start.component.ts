@@ -3,6 +3,9 @@ import { KartenSpeicherService } from "../kartenSpeicher/karten-speicher.service
 import { EventData } from "tns-core-modules/data/observable";
 import { Ikarten } from "../interface/iKarten";
 import { valueProperty } from "tns-core-modules/ui/slider/slider";
+import { Router } from "@angular/router";
+import { TabView } from "tns-core-modules/ui/tab-view/tab-view";
+import { AppComponent } from "../app.component";
 
 @Component({
     selector: "Start",
@@ -13,7 +16,7 @@ export class StartComponent implements OnInit {
     cards: Array<Ikarten>;
     anzahlWerwolf: number;
     anzahlDorfbewohner: number;
-    constructor(private kartenSpeicher: KartenSpeicherService) {
+    constructor(private kartenSpeicher: KartenSpeicherService, private appComponent: AppComponent) {
         
     }
     ngOnInit(): void {
@@ -24,6 +27,7 @@ export class StartComponent implements OnInit {
     }
 
     tapPlus(args: EventData) {
+        
         const card = args.object.get("id");
 
         if (card === "DorfbewohnerPlus") {
@@ -76,5 +80,9 @@ export class StartComponent implements OnInit {
         this.kartenSpeicher.resetGame();
         this.anzahlDorfbewohner = 0;
         this.anzahlWerwolf = 0;
+    }
+
+    startGame(): void {
+        this.appComponent.tabView.nativeElement.selectedIndex = 2;
     }
 }
