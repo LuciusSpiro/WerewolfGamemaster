@@ -1,0 +1,9 @@
+<ActionBar class="action-bar" [title]="karte.name">
+    <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="goBack()"></NavigationButton>
+</ActionBar>
+
+<FlexboxLayout alignContent="flex-start"  flexWrap="wrap" justifyContent="space-around">
+    <Image id="bild" [src]="karte.path" height="600px" stretch="fill" width="600px" margin="10"></Image>
+    <Label id="text" [text]="karte.text" textWrap="true" margin="10"></Label>
+    <Label [text]="'Dies ist eine ' + gesinnung + ' Karte'" textWrap="true"></Label>
+</FlexboxLayout>
