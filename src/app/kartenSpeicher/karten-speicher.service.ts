@@ -8,12 +8,14 @@ export class KartenSpeicherService {
 
   test: Array<Ikarten>;
   alleKarten: Array<Ikarten>;
+  naechstesSpiel: Array<Ikarten>;
         
   constructor() {
+    this.naechstesSpiel = [];
     this.alleKarten = [
       {
         name: "Dorfbewohner",
-        text: "Ein einfacher Bewohner des Dorfes ohne Sonderfähigkeiten",
+        text: "Ein einfacher Bewohner des Dorfes ohne Sonderfähigkeiten.",
         position: 99,
         gut: true,
         path: "~/assets/dorfbewohner.png",
@@ -25,7 +27,7 @@ export class KartenSpeicherService {
         position: 1,
         gut: false,
         path: "~/assets/werwolf.png",
-        anzahl: 2
+        anzahl: 1
       },
       {
         name: "Hexe",
@@ -85,7 +87,72 @@ export class KartenSpeicherService {
   getKarte(name){
     return this.alleKarten.find((karte) => {
       return karte.name === name;
-    })
+    });
   }
 
+  getNextGame(): Array<Ikarten> {
+    return this.naechstesSpiel;
+  }
+
+  resetGame(): void {
+    this.naechstesSpiel = [];
+  }
+
+  addKarte(name: string): void {
+    let karte: Ikarten;
+
+    for (let k of this.alleKarten) {
+      if (k.name === name) {
+        karte = k;
+      }
+    }
+    if (name === "Werwolf" || name === "Dorfbewohner") {
+      let found = false;
+      for (let k of this.naechstesSpiel) {
+        if (k.name === name) {
+          k.anzahl++;
+          found = true;
+        }
+      }
+      if (!found) {
+        this.naechstesSpiel.push(karte);
+      }
+    } else {
+      this.naechstesSpiel.push(karte);
+    }
+  }
+
+  nextGameContains(name: string): boolean {
+    for (let k of this.naechstesSpiel) {
+      if (k.name === name) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  removeKarte(name: string): void {
+    if (name === "Werwolf" || name === "Dorfbewohner") {
+      for (const k of this.naechstesSpiel) {
+        if (k.name === name) {
+          k.anzahl--;
+          if (k.anzahl === 0) {
+            this.naechstesSpiel = this.naechstesSpiel.filter((a) => a.name !== name);
+          }
+        }
+      }
+    } else {
+      this.naechstesSpiel = this.naechstesSpiel.filter((a) => a.name !== name);
+    }
+  }
+
+  toNameList(): string {
+    let res = "";
+    for (let k of this.naechstesSpiel) {
+      res = res + " " + k.name;
+    }
+
+    return res;
+  }
 }
