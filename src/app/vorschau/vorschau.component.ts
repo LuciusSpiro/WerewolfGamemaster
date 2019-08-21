@@ -2,11 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { DataService, IDataItem } from "../shared/data.service";
 
 @Component({
-    selector: "Home",
+    selector: "Vorschau",
     moduleId: module.id,
-    templateUrl: "./home.component.html"
+    templateUrl: "./vorschau.component.html"
 })
-export class HomeComponent implements OnInit {
+export class VorschauComponent implements OnInit {
     items: Array<IDataItem>;
 
     constructor(private _itemService: DataService) { }

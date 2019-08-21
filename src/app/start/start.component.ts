@@ -1,15 +1,15 @@
 import { Component, OnInit } from "@angular/core";
-import { Karte } from "./Karte";
 import { KartenSpeicherService } from "../kartenSpeicher/karten-speicher.service";
 import { EventData } from "tns-core-modules/data/observable";
+import { Ikarten } from "../interface/iKarten";
 
 @Component({
-    selector: "Browse",
+    selector: "Start",
     moduleId: module.id,
-    templateUrl: "./browse.component.html"
+    templateUrl: "./start.component.html"
 })
-export class BrowseComponent implements OnInit {
-    cards: Array<Karte>;
+export class StartComponent implements OnInit {
+    cards: Array<Ikarten>;
     anzahlWerwolf: number;
     anzahlDorfbewohner: number;
     constructor(private kartenSpeicher: KartenSpeicherService) {

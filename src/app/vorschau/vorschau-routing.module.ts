@@ -2,11 +2,11 @@ import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
-import { HomeComponent } from "./home.component";
+import { VorschauComponent } from "./vorschau.component";
 import { ItemDetailComponent } from "../item-detail/item-detail.component";
 
 const routes: Routes = [
-    { path: "default", component: HomeComponent },
+    { path: "default", component: VorschauComponent },
     { path: "item/:id", component: ItemDetailComponent }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
     imports: [NativeScriptRouterModule.forChild(routes)],
     exports: [NativeScriptRouterModule]
 })
-export class HomeRoutingModule { }
+export class VorschauRoutingModule { }

@@ -1,21 +1,21 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 
-import { BrowseRoutingModule } from "./browse-routing.module";
-import { BrowseComponent } from "./browse.component";
+import { StartRoutingModule } from "./start-routing.module";
+import { StartComponent } from "./start.component";
 import { KartenDetailComponent } from "./karten-detail/karten-detail.component";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
-        BrowseRoutingModule
+        StartRoutingModule
     ],
     declarations: [
-        BrowseComponent,
+        StartComponent,
         KartenDetailComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
 })
-export class BrowseModule { }
+export class StartModule { }
