@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { KartenSpeicherService } from "~/app/kartenSpeicher/karten-speicher.service";
 import { Ikarten } from "~/app/interface/iKarten";
+import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
     selector: "KartenDetail",
@@ -15,7 +16,7 @@ export class KartenDetailComponent implements OnInit {
     text: string;
     karte: Ikarten;
     gesinnung: string;
-    constructor(private _route: ActivatedRoute, private kartenSpeicher: KartenSpeicherService) { }
+    constructor(private _route: ActivatedRoute, private kartenSpeicher: KartenSpeicherService, private routerExtensions: RouterExtensions) { }
 
     ngOnInit(): void {
         this.name = this._route.snapshot.params.id;
@@ -37,4 +38,7 @@ export class KartenDetailComponent implements OnInit {
         this.text = this.karte.text;
     }
 
+    public goBack() {
+        this.routerExtensions.backToPreviousPage();
+    }
 }
