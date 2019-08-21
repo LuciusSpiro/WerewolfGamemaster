@@ -60,15 +60,18 @@ export class StartComponent implements OnInit {
         if (card === "Werwolf") { 
             this.anzahlWerwolf++;
             this.kartenSpeicher.addKarte(card);
+            
             return;
         }
         if (card === "Dorfbewohner") {
             this.anzahlDorfbewohner++;
             this.kartenSpeicher.addKarte(card);
+            
             return;
             }
         if (!containGameCard) {
             this.kartenSpeicher.addKarte(card);
+            
             return;
         }
         this.kartenSpeicher.removeKarte(card);

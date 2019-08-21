@@ -24,20 +24,9 @@ export class KartenDetailComponent implements OnInit {
 
     ngOnInit(): void {
         this.name = this._route.snapshot.params.id;
-        let karten = this.kartenSpeicher.getAllCards();
-        console.log(this.name);
-        for (let k of karten) {
-            console.log(k.name);
-            if (this.name === k.name) {
-                this.karte = k;
-                console.log(k);
-            }
-        }
-        if (this.karte.gut) {
-            this.gesinnung = "gute";
-        } else {
-            this.gesinnung = "böse";
-        }
+        this.karte = this.kartenSpeicher.getAllCards().find((karte) => karte.name === this.name);
+        this.gesinnung = this.karte.gut ? "gute" : "böse";
+        
         this.path = this.karte.path;
         this.text = this.karte.text;
     }

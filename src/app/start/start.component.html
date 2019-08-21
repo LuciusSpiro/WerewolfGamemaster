@@ -3,16 +3,18 @@
 </ActionBar>
 
 <DockLayout class="wgm-gameList">
-    <Button text="neues Spiel" dock="top" (tap)="newGame()"></Button>
+    <Button text="neues Spiel" (tap)="newGame()" dock="top"></Button>
     <Button text="Spiel starten!" (tap)="startGame()" dock="bottom"></Button>
     <ScrollView>
         <FlexboxLayout backgroundColor="lightgray" alignContent="space-around" alignItems="center" flexWrap="wrap" justifyContent="space-around">
-            <AbsoluteLayout *ngFor="let card of cards">
-                <Image [src]="card.path" stretch="aspectFit" width="45%" (tap)="tapKarte($event)" [id]="card.name" [tintColor]="kartenSpeicher.nextGameContains(card.name) && !(card.name=='Werwolf' || card.name=='Dorfbewohner') ? 'rgba(50,50,50,0.7)' : 'rgba(50,50,50,0)'"></Image>
-                <Image [nsRouterLink]="['../karte', card.name]" src="~/assets/info.png" left="500px" top="25px" heigth="75px" width="75px"></Image>
-                <Button [id]="card.name + 'Minus'" (tap)="tapMinus($event)" text="-" top="400px" width="200px" [visibility]="card.name=='Werwolf' || card.name=='Dorfbewohner' ? 'visible' : 'hidden'"></Button>
-                <Button [id]="card.name + 'Plus'" (tap)="tapPlus($event)" text="+" top="400px" left="400px" width="200px" [visibility]="card.name=='Werwolf' || card.name=='Dorfbewohner' ? 'visible' : 'hidden'"></Button>
-                <TextField backgroundColor="lightgray" textAlignment="center" keyboardType="number" [text]="card.name=='Werwolf'  ? anzahlWerwolf : (card.name=='Dorfbewohner' ? anzahlDorfbewohner : '')" top="400px" left="200px" width="200px" editable = "false" [visibility]="card.name=='Werwolf' || card.name=='Dorfbewohner' ? 'visible' : 'hidden'"></TextField>
+            <AbsoluteLayout *ngFor="let card of cards" width="45%">
+                <Image [src]="card.path" stretch="aspectFit" width="100%" (tap)="tapKarte($event)" [id]="card.name" [tintColor]="kartenSpeicher.nextGameContains(card.name) && !(card.name=='Werwolf' || card.name=='Dorfbewohner') ? 'rgba(50,50,50,0.7)' : 'rgba(50,50,50,0)'"></Image>
+                <Image [nsRouterLink]="['../karte', card.name]" src="~/assets/info.png" left="150%" top="10%" heigth="75px" width="75px"></Image>
+                <FlexboxLayout top="130%" width="100%" alignContent="space-around" alignItems="center" flexWrap="wrap" justifyContent="space-around">
+                    <Button [id]="card.name + 'Minus'" (tap)="tapMinus($event)" text="-" width="30%" *ngIf="card.name=='Werwolf' || card.name=='Dorfbewohner'"></Button>
+                    <TextField backgroundColor="lightgray" width="20%" textAlignment="center" keyboardType="number" [text]="card.name=='Werwolf'  ? anzahlWerwolf : (card.name=='Dorfbewohner' ? anzahlDorfbewohner : '')" editable="false" *ngIf="card.name=='Werwolf' || card.name=='Dorfbewohner'"></TextField>
+                    <Button [id]="card.name + 'Plus'" (tap)="tapPlus($event)" text="+" width="30%" *ngIf="card.name=='Werwolf' || card.name=='Dorfbewohner'"></Button>
+                </FlexboxLayout>
             </AbsoluteLayout>
         </FlexboxLayout>
     </ScrollView>
