@@ -9,9 +9,9 @@
     <FlexboxLayout class="wgm-gameList__list">
         <ListView [items]="karten" class="list-group">
             <ng-template let-item="item">
-                <FlexboxLayout>
-                    <Label [nsRouterLink]="['../karte', item.name]" [text]='item.name' class="wgm-gameList__item wgm-gameList__name"></Label>
-                    <Label [nsRouterLink]="['../karte', item.name]" [text]='getAnzahl(item)' class="wgm-gameList__item wgm-gameList__amount"></Label>
+                <FlexboxLayout height="100px" alignContent="center" justifyContent="space-between" [nsRouterLink]="['../karte', item.name]">
+                    <Label [text]='item.name' verticalAlignment="center" marginTop="35px" marginLeft="35px"></Label>
+                    <Label [text]='getAnzahl(item)' verticalAlignment="center" marginTop="35px"></Label>
                     <button class="wgm-gameList__kill-button wgm-gameList__item" text="Tod" (tap)="killPerson(item)"></button>
                 </FlexboxLayout>
             </ng-template>
