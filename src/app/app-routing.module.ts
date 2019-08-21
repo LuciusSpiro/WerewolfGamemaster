@@ -6,16 +6,10 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 const routes: Routes = [
     {
         path: "",
-        redirectTo: "/(vorschauTab:vorschau/default//startTab:start/default//spielTab:spiel/default)",
+        redirectTo: "/(startTab:start/default//spielTab:spiel/default)",
         pathMatch: "full"
     },
 
-    {
-        path: "vorschau",
-        component: NSEmptyOutletComponent,
-        loadChildren: "~/app/vorschau/vorschau.module#VorschauModule",
-        outlet: "vorschauTab"
-    },
     {
         path: "start",
         component: NSEmptyOutletComponent,

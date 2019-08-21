@@ -23,9 +23,8 @@ export class SpielComponent implements OnInit {
         if (first && first.position >= 0) {
             this.karten.push(first);
         }
-        console.log("===========================================");
-        console.log(this.karten);
     }
+
     killPerson(karte: Ikarten) {
         karte.anzahl -=1;
         if (karte.anzahl <= 0) {
@@ -34,6 +33,7 @@ export class SpielComponent implements OnInit {
             });
         }
     }
+    
     getAnzahl(karte: Ikarten): string {
         if (karte.anzahl > 1) {
             return "" + karte.anzahl;

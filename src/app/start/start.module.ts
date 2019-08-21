@@ -3,7 +3,6 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { StartRoutingModule } from "./start-routing.module";
 import { StartComponent } from "./start.component";
-import { StartDetailComponent } from "./start-detail/start-detail.component";
 import { KartenDetailModule } from "../karten-detail/karten-detail.module";
 
 @NgModule({
@@ -13,8 +12,7 @@ import { KartenDetailModule } from "../karten-detail/karten-detail.module";
         KartenDetailModule
     ],
     declarations: [
-        StartComponent,
-        StartDetailComponent
+        StartComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

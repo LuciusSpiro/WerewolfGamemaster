@@ -3,7 +3,6 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { SpielRoutingModule } from "./spiel-routing.module";
 import { SpielComponent } from "./spiel.component";
-import { SpielDetailComponent } from "./spiel-detail/spiel-detail.component";
 import { KartenDetailModule } from "../karten-detail/karten-detail.module";
 
 @NgModule({
@@ -14,7 +13,6 @@ import { KartenDetailModule } from "../karten-detail/karten-detail.module";
     ],
     declarations: [
         SpielComponent,
-        SpielDetailComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
