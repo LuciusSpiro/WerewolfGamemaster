@@ -36,17 +36,6 @@ export class KartenSpeicherService {
 
   addKarte(name: string): void {
     let karte = this.getKarte(name);
-
-    if (name === "Werwolf" && this.nextGameContains("Werwolf")) {
-      this.nextGameGetKarte(name).anzahl++;
-      
-      return;
-    }
-    if (name === "Dorfbewohner" && this.nextGameContains("Dorfbewohner")) {
-      this.nextGameGetKarte(name).anzahl++;
-      
-      return;
-    }
     
     this.naechstesSpiel.push(karte);
   }
@@ -61,21 +50,15 @@ export class KartenSpeicherService {
 
   removeKarte(name: string): void {
     if (name === "Werwolf") {
-      const werwolfKarte = this.nextGameGetKarte("Werwolf");
-      werwolfKarte.anzahl--;
-      if (werwolfKarte.anzahl === 0) {
-        this.naechstesSpiel = this.naechstesSpiel.filter((karte) => karte.name !== name);
-      }
+      const index = this.naechstesSpiel.indexOf(this.nextGameGetKarte(name));
+      this.naechstesSpiel.splice(index, 1);
 
       return;
     }
     if (name === "Dorfbewohner") {
-      const bewohnerKarte =  this.nextGameGetKarte("Dorfbewohner");
-      bewohnerKarte.anzahl--;
-      if (bewohnerKarte.anzahl === 0) {
-        this.naechstesSpiel = this.naechstesSpiel.filter((karte) => karte.name !== name);
-      }
-
+      const index = this.naechstesSpiel.indexOf(this.nextGameGetKarte(name));
+      this.naechstesSpiel.splice(index, 1);
+      
       return;
     }
       
@@ -85,6 +68,14 @@ export class KartenSpeicherService {
 
   startGame(): void {
     this.aktuellesSpiel = this.naechstesSpiel.filter((a) => a.position !== 0);
+    this.aktuellesSpiel = this.getUniqueCards(this.aktuellesSpiel);
+    this.aktuellesSpiel.find((karte) => karte.name === "Werwolf").anzahl =
+      this.naechstesSpiel.reduce((accumulator, current) => {
+        const wolf = current.name === "Werwolf" ? 1 : 0;
+        accumulator = accumulator + wolf;
+        
+        return accumulator;
+      }, 0);
     this.aktuellesSpiel.sort((a1, a2) => a1.position - a2.position);
 
   }
@@ -92,4 +83,16 @@ export class KartenSpeicherService {
   getCurrentGame(): Array<Ikarten> {
     return this.aktuellesSpiel;
   }
+
+  killPerson(karte: Ikarten) {
+    karte.anzahl--;
+    if (karte.anzahl <= 0) {
+      this.aktuellesSpiel = this.aktuellesSpiel.filter((item) => karte.name !== item.name);
+    }
+  }
+
+  getUniqueCards(karten: Array<Ikarten>): Array<Ikarten> {
+    return karten.filter((value, index, self) => self.indexOf(value) === index);
+  }
+
 }

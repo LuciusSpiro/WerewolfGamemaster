@@ -29,12 +29,8 @@ export class SpielComponent implements OnInit {
     }
 
     killPerson(karte: Ikarten) {
-        karte.anzahl -= 1;
-        if (karte.anzahl <= 0) {
-            this.karten = this.karten.filter((item) => {
-                return item.anzahl !== 0;
-            });
-        }
+        this.kartenSpeicher.killPerson(karte);
+        this.karten = this.kartenSpeicher.getCurrentGame();
     }
     
     getAnzahl(karte: Ikarten): string {
