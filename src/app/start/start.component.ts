@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { KartenSpeicherService } from "../kartenSpeicher/karten-speicher.service";
 import { EventData } from "tns-core-modules/data/observable";
 import { Ikarten } from "../interface/iKarten";
+import { valueProperty } from "tns-core-modules/ui/slider/slider";
 
 @Component({
     selector: "Start",
@@ -38,35 +39,37 @@ export class StartComponent implements OnInit {
         const card = args.object.get("id");
 
         if (card === "DorfbewohnerMinus") {
-            this.anzahlDorfbewohner--;
+            if (this.anzahlDorfbewohner > 0) {
+                this.anzahlDorfbewohner--;
+            }
         } else {
-            this.anzahlWerwolf--;
+            if (this.anzahlWerwolf > 0) {
+                this.anzahlWerwolf--;
+            } 
         }
     }
 
-    tapKarte(args: EventData) {
-        let card = args.object.get("id");
-        let a = this.kartenSpeicher.nextGameContains(card);
+    tapKarte(args: EventData): void {
+        const card = args.object.get("id");
+        const containGameCard = this.kartenSpeicher.nextGameContains(card);
         
-        if (card === "Werwolf" || card === "Dorfbewohner") {
-            if (card === "Werwolf") {
-                this.anzahlWerwolf++;
-                this.kartenSpeicher.addKarte(card);
-            } else {
-                this.anzahlDorfbewohner++;
-                this.kartenSpeicher.addKarte(card);
-
-            }
-        } else {
-            if (!a) {
-                this.kartenSpeicher.addKarte(card);
-                //args.object.set("tintColor", "rgba(50,50,50,0.7)");
-            } else {
-                //args.object.set("tintColor", "rgba(50,50,50,0)");
-                this.kartenSpeicher.removeKarte(card);
-            }
+        if (card === "Werwolf") { 
+            this.anzahlWerwolf++;
+            this.kartenSpeicher.addKarte(card);
+            return;
         }
-        //console.log(this.kartenSpeicher.toNameList());
+        if (card === "Dorfbewohner") {
+            this.anzahlDorfbewohner++;
+            this.kartenSpeicher.addKarte(card);
+            return;
+            }
+        if (!containGameCard) {
+            this.kartenSpeicher.addKarte(card);
+            return;
+        }
+        this.kartenSpeicher.removeKarte(card);
+    
+        
     }
 
     newGame() {
