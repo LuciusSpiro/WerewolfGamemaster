@@ -3,11 +3,11 @@ import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
 import { VorschauComponent } from "./vorschau.component";
-import { ItemDetailComponent } from "../item-detail/item-detail.component";
+import { VorschauDetailComponent } from "./vorschau-detail/vorschau-detail.component";
 
 const routes: Routes = [
     { path: "default", component: VorschauComponent },
-    { path: "item/:id", component: ItemDetailComponent }
+    { path: "karte/:id", component: VorschauDetailComponent }
 ];
 
 @NgModule({

@@ -3,7 +3,7 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 
 import { VorschauRoutingModule } from "./vorschau-routing.module";
 import { VorschauComponent } from "./vorschau.component";
-import { ItemDetailComponent } from "../item-detail/item-detail.component";
+import { VorschauDetailComponent } from "./vorschau-detail/vorschau-detail.component";
 
 @NgModule({
     imports: [
@@ -12,7 +12,7 @@ import { ItemDetailComponent } from "../item-detail/item-detail.component";
     ],
     declarations: [
         VorschauComponent,
-        ItemDetailComponent
+        VorschauDetailComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

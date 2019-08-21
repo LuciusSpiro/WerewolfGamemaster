@@ -3,11 +3,11 @@ import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 
 import { StartComponent } from "./start.component";
-import { KartenDetailComponent } from "./karten-detail/karten-detail.component";
+import { StartDetailComponent } from "./start-detail/start-detail.component";
 
 const routes: Routes = [
     { path: "default", component: StartComponent },
-    { path: "item/:id", component: KartenDetailComponent }
+    { path: "karte/:id", component: StartDetailComponent }
 ];
 
 @NgModule({

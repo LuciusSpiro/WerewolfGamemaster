@@ -10,8 +10,8 @@
         <ListView [items]="karten" class="list-group">
             <ng-template let-item="item">
                 <FlexboxLayout>
-                    <Label [text]='item.name' class="wgm-gameList__item wgm-gameList__name"></Label>
-                    <Label [text]='getAnzahl(item)' class="wgm-gameList__item wgm-gameList__amount"></Label>
+                    <Label [nsRouterLink]="['../karte', item.name]" [text]='item.name' class="wgm-gameList__item wgm-gameList__name"></Label>
+                    <Label [nsRouterLink]="['../karte', item.name]" [text]='getAnzahl(item)' class="wgm-gameList__item wgm-gameList__amount"></Label>
                     <button class="wgm-gameList__kill-button wgm-gameList__item" text="Tod" (tap)="killPerson(item)"></button>
                 </FlexboxLayout>
             </ng-template>
