@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Karte } from "./Karte";
 import { KartenSpeicherService } from "../kartenSpeicher/karten-speicher.service";
 import { EventData } from "tns-core-modules/data/observable";
+import { isPassThroughParentEnabledProperty } from "tns-core-modules/ui/layouts/layout-base";
 
 @Component({
     selector: "Browse",
@@ -38,9 +39,13 @@ export class BrowseComponent implements OnInit {
         const card = args.object.get("id");
 
         if (card === "DorfbewohnerMinus") {
-            this.anzahlDorfbewohner--;
+            if (this.anzahlDorfbewohner > 0) {
+                this.anzahlDorfbewohner--;
+            }
         } else {
-            this.anzahlWerwolf--;
+            if (this.anzahlWerwolf > 0) {
+                this.anzahlWerwolf--;
+            } 
         }
     }
 
