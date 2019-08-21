@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { KartenSpeicherService } from "../kartenSpeicher/karten-speicher.service";
 import { Ikarten } from "../interface/iKarten";
 import { Page } from "tns-core-modules/ui/page/page";
+import { TabView } from "tns-core-modules/ui/tab-view/tab-view";
+import { AppComponent } from "../app.component";
 
 @Component({
     selector: "Spiel",
@@ -10,27 +12,24 @@ import { Page } from "tns-core-modules/ui/page/page";
 })
 export class SpielComponent implements OnInit {
     karten: Array<Ikarten>;
-    constructor(private kartenSpeicher: KartenSpeicherService, private page: Page) {
-        this.page.addEventListener("navigatedTo", () => {
-            this.karten = this.kartenSpeicher.getNextGame();
-            this.karten = this.karten.filter((a) => a.position !== 0);
-            this.karten.sort((a1, a2) => a1.position - a2.position); });
+    constructor(private kartenSpeicher: KartenSpeicherService, private page: Page, private appComponent: AppComponent) {
+        this.appComponent.tabView.nativeElement.addEventListener(TabView.selectedIndexChangedEvent, () => {
+            this.karten = this.kartenSpeicher.getCurrentGame();
+        });
     }
     ngOnInit() {
-        this.karten = this.kartenSpeicher.getNextGame();
-        this.karten = this.karten.filter((a) => a.position !== 0);
-        this.karten.sort((a1, a2) => a1.position - a2.position);
+        this.karten = this.kartenSpeicher.getCurrentGame();
     }
 
     next() {
-        let first = this.karten.shift();
+        const first = this.karten.shift();
         if (first && first.position >= 0) {
             this.karten.push(first);
         }
     }
 
     killPerson(karte: Ikarten) {
-        karte.anzahl -=1;
+        karte.anzahl -= 1;
         if (karte.anzahl <= 0) {
             this.karten = this.karten.filter((item) => {
                 return item.anzahl !== 0;

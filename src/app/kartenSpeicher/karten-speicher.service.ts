@@ -13,6 +13,7 @@ export class KartenSpeicherService {
   aktuellesSpiel: Array<Ikarten>;
   
   constructor() {
+    this.aktuellesSpiel = [];
     this.naechstesSpiel = [];
     this.alleKarten = alleKarten;
   }
@@ -80,5 +81,15 @@ export class KartenSpeicherService {
       
     this.naechstesSpiel = this.naechstesSpiel.filter((a) => a.name !== name);
     
+  }
+
+  startGame(): void {
+    this.aktuellesSpiel = this.naechstesSpiel.filter((a) => a.position !== 0);
+    this.aktuellesSpiel.sort((a1, a2) => a1.position - a2.position);
+
+  }
+
+  getCurrentGame(): Array<Ikarten> {
+    return this.aktuellesSpiel;
   }
 }
