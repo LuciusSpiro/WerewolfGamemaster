@@ -3,11 +3,11 @@ import { KartenSpeicherService } from "../kartenSpeicher/karten-speicher.service
 import { Ikarten } from "../interface/iKarten";
 
 @Component({
-    selector: "Search",
+    selector: "Spiel",
     moduleId: module.id,
-    templateUrl: "./search.component.html"
+    templateUrl: "./spiel.component.html"
 })
-export class SearchComponent implements OnInit {
+export class SpielComponent implements OnInit {
     karten: Array<Ikarten>;
     constructor(private kartenSpeicher: KartenSpeicherService) {
     }

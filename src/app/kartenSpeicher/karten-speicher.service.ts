@@ -9,7 +9,8 @@ export class KartenSpeicherService {
   test: Array<Ikarten>;
   alleKarten: Array<Ikarten>;
   naechstesSpiel: Array<Ikarten>;
-        
+  aktuellesSpiel: Array<Ikarten>;
+  
   constructor() {
     this.naechstesSpiel = [];
     this.alleKarten = [
