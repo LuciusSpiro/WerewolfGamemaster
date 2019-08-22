@@ -69,13 +69,16 @@ export class KartenSpeicherService {
   startGame(): void {
     this.aktuellesSpiel = this.naechstesSpiel.filter((a) => a.position !== 0);
     this.aktuellesSpiel = this.getUniqueCards(this.aktuellesSpiel);
-    this.aktuellesSpiel.find((karte) => karte.name === "Werwolf").anzahl =
+    if (!!this.aktuellesSpiel.find((karte) => karte.name === "Werwolf")) {
+      this.aktuellesSpiel.find((karte) => karte.name === "Werwolf").anzahl =
       this.naechstesSpiel.reduce((accumulator, current) => {
         const wolf = current.name === "Werwolf" ? 1 : 0;
         accumulator = accumulator + wolf;
         
         return accumulator;
       }, 0);
+    }
+    
     this.aktuellesSpiel.sort((a1, a2) => a1.position - a2.position);
 
   }
