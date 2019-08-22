@@ -4,6 +4,9 @@ import { Ikarten } from "../interface/iKarten";
 import { Page } from "tns-core-modules/ui/page/page";
 import { TabView } from "tns-core-modules/ui/tab-view/tab-view";
 import { AppComponent } from "../app.component";
+import { AndroidApplication, AndroidActivityBackPressedEventData } from "tns-core-modules/application";
+import { Router } from "@angular/router";
+import * as application from "tns-core-modules/application";
 
 @Component({
     selector: "Spiel",
@@ -12,13 +15,19 @@ import { AppComponent } from "../app.component";
 })
 export class SpielComponent implements OnInit {
     karten: Array<Ikarten>;
-    constructor(private kartenSpeicher: KartenSpeicherService, private page: Page, private appComponent: AppComponent) {
+    constructor(private kartenSpeicher: KartenSpeicherService, private page: Page, private appComponent: AppComponent, private router: Router) {
         this.appComponent.tabView.nativeElement.addEventListener(TabView.selectedIndexChangedEvent, () => {
             this.karten = this.kartenSpeicher.getCurrentGame();
         });
     }
     ngOnInit() {
         this.karten = this.kartenSpeicher.getCurrentGame();
+        application.android.on(AndroidApplication.activityBackPressedEvent, (data: AndroidActivityBackPressedEventData) => {
+            if (this.router.isActive("/(startTab:start/default//spielTab:spiel/default)", false)) {
+              data.cancel = true; // prevents default back button behavior
+              this.appComponent.tabView.nativeElement.selectedIndex = 0;
+            }
+          });
     }
 
     next() {
