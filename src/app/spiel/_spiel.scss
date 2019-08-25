@@ -1,20 +1,20 @@
 .wgm-gameList {
     background-color: #464646;
     &__list {
-        dock: top;
-        flexDirection: column;
-        alignContent: space-between;
+        flex-direction: row;
+        align-content: space-between;
         color: #ffffff;
     }
-    &__button {
-        dock: bottom;
-    }
     &__name {
-        width: 30%;
+        width: 20%;
     }
     &__amount {
         width: 50%;
-        textAlignment: center;
+        text-align: center;
+    }
+    &__container {
+        align-content: center;
+        height: 100px;
     }
     &__kill-button {
         width: 20%;

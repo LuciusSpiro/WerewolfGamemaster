@@ -15,9 +15,9 @@
                     <Image [nsRouterLink]="['../karte', card.name]" src="~/assets/info.png" class="wgm-start-card__link"></Image>
 
                     <FlexboxLayout class="wgm-start-card__counter">
-                        <Button (tap)="tapMinus($event)" text="-" *ngIf="card.name=='Werwolf' || card.name=='Dorfbewohner'" class="wgm-start-card__button"></Button>
+                        <Button [id]="card.name + 'Minus'" (tap)="tapMinus($event)" text="-" *ngIf="card.name=='Werwolf' || card.name=='Dorfbewohner'" class="wgm-start-card__button"></Button>
                         <TextField keyboardType="number" [text]="card.name=='Werwolf'  ? anzahlWerwolf : (card.name=='Dorfbewohner' ? anzahlDorfbewohner : '')" editable="false" *ngIf="card.name=='Werwolf' || card.name=='Dorfbewohner'" class="wgm-start-card__text"></TextField>
-                        <Button (tap)="tapPlus($event)" text="+" *ngIf="card.name=='Werwolf' || card.name=='Dorfbewohner'" class="wgm-start-card__button"></Button>
+                        <Button [id]="card.name + 'Plus'" (tap)="tapPlus($event)" text="+" *ngIf="card.name=='Werwolf' || card.name=='Dorfbewohner'" class="wgm-start-card__button"></Button>
                     </FlexboxLayout>
                 </FlexboxLayout>
             </AbsoluteLayout>
