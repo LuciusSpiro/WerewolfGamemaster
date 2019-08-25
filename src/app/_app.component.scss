@@ -1,2 +1,13 @@
 // Custom common variables
 @import '../app-variables';
+.tabview {
+    tab-text-color: #ffffffc0;
+    selected-tab-text-color: #fab856;
+    tab-background-color: #272727;
+    tab-text-font-size: 20px;
+    android-selected-tab-highlight-color: rgb(214, 25, 0);
+}
+
+.action-bar {
+    background-color: rgba(202, 2, 2, 0.856);
+}

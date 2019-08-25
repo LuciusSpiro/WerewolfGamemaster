@@ -1,21 +1,18 @@
 <ActionBar class="action-bar">
     <Label class="action-bar-title" text="Laufende Runde"></Label>
 </ActionBar>
-
-
 <DockLayout class="wgm-gameList">
-    <button class="btn btn-primary btn-active wgm-gameList__button" text="Next" (tap)="next()"></button>
-
+    <button class="btn btn-primary btn-active wgm-gameList__button" text="Weiter" (tap)="next()" dock="bottom"></button>
     <FlexboxLayout class="wgm-gameList__list">
         <ListView [items]="karten" class="list-group">
             <ng-template let-item="item">
-                <FlexboxLayout height="100px" alignContent="center" [justifyContent]="item.name === 'Dorfbewohner' ? 'center' : 'space-between'" [nsRouterLink]="['../karte', item.name]">
-                    <Label [text]='item.name' *ngIf="item.name !== 'Dorfbewohner'" marginTop="35px" marginLeft="35px"></Label>
-                    <Label [text]='getAnzahl(item)' *ngIf="item.name !== 'Dorfbewohner'" marginTop="35px"></Label>
-                    <button class="wgm-gameList__kill-button wgm-gameList__item" *ngIf="item.name !== 'Dorfbewohner'" text="Tod" (tap)="killPerson(item)"></button>
-                    <Label text='Ein neuer Tag bricht an' *ngIf="item.name === 'Dorfbewohner'" marginTop="35px"></Label>
+                <FlexboxLayout [justifyContent]="item.name === 'Dorfbewohner' ? 'center' : 'space-between'" [nsRouterLink]="['../karte', item.name]" class="wgm-gameList__list">
+                    <Label [text]='item.name' *ngIf="item.name !== 'Dorfbewohner'" marginLeft="35px" class="wgm-gameList__name wgm-gameList__item"></Label>
+                    <Label [text]='getAnzahl(item)' *ngIf="item.name !== 'Dorfbewohner'" class="wgm-gameList__amount wgm-gameList__item"></Label>
+                    <button *ngIf="item.name !== 'Dorfbewohner'" text="Tod" (tap)="killPerson(item)" class="wgm-gameList__kill-button"></button>
+                    <Label text='Ein neuer Tag bricht an' *ngIf="item.name === 'Dorfbewohner'" class="wgm-gameList__new-day wgm-gameList__item"></Label>
                 </FlexboxLayout>
             </ng-template>
         </ListView>
     </FlexboxLayout>
-</DockLayout>git s
+</DockLayout>

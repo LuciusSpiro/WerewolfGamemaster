@@ -1,0 +1,14 @@
+.karten-detail {
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #464646;
+    &__image {
+        width: 33%;
+        margin: 10;
+    }
+    &__text {
+        margin: 10;
+        color: #ffffff;
+    }
+}
