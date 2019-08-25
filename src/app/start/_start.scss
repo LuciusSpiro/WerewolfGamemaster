@@ -15,8 +15,13 @@
 }
 
 .wgm-start-card {
-    width: 45%;
     align-content: space-between;
+    &--large {
+        width: 45%;
+    }
+    &--small {
+        width: 30%;
+    }
     &__image {
         width: 100%;
     }
@@ -30,12 +35,11 @@
     &__counter {
         justify-content: space-around;
         width: 100%;
-        padding-top: 85%;
+        padding: 90% 0 10% 0;
     }
     &__link {
         height: 75px;
         width: 75px;
-        margin: 20px;
     }
     &__button {
         width: 30%;
