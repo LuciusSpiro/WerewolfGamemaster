@@ -61,5 +61,29 @@
         "gut": true,
         "path": "~/assets/seherin.png",
         "anzahl": 1
+    },
+    {
+        "name": "Alter Mann",
+        "text": "Der alte Mann stirbt nicht, wenn er zum ersten mal von den Werwölfen gefressen wird.",
+        "position": -2,
+        "gut": true,
+        "path": "~/assets/altermann.png",
+        "anzahl": 1
+    },
+    {
+        "name": "Bärenführer",
+        "text": "Wenn sich der Bärenführer am Morgen unmittelbar neben einem Werwolf befindet, zeigt der Spielleiter (Bär) dies durch ein Knurren.",
+        "position": -2,
+        "gut": true,
+        "path": "~/assets/baerenfuehrer.png",
+        "anzahl": 1
+    },
+    {
+        "name": "Dorfdepp",
+        "text": "Wird der Dorfdepp vom Dorfgericht als Opfer auserkoren, erkennen sie im letzten Moment, dass es sich nur um den Dorfdepp handelt. Der Dorfdepp darf weiter leben, hat aber nun kein Abstimmungsrecht mehr.",
+        "position": -2,
+        "gut": true,
+        "path": "~/assets/dorfdepp.png",
+        "anzahl": 1
     }
 ]
