@@ -7,11 +7,11 @@ import alleKarten from "./alleKarten.json";
 })
 export class KartenSpeicherService {
 
-  test: Array<Ikarten>;
+  runde = 1;
   alleKarten: Array<Ikarten>;
   naechstesSpiel: Array<Ikarten>;
   aktuellesSpiel: Array<Ikarten>;
-  
+
   constructor() {
     this.aktuellesSpiel = [];
     this.naechstesSpiel = [];
@@ -22,7 +22,7 @@ export class KartenSpeicherService {
     return this.alleKarten;
   }
 
-  getKarte(name): Ikarten{
+  getKarte(name): Ikarten {
     return this.alleKarten.find((karte) => karte.name === name);
   }
 
@@ -36,7 +36,7 @@ export class KartenSpeicherService {
 
   addKarte(name: string): void {
     let karte = this.getKarte(name);
-    
+
     this.naechstesSpiel.push(karte);
   }
 
@@ -58,27 +58,28 @@ export class KartenSpeicherService {
     if (name === "Dorfbewohner") {
       const index = this.naechstesSpiel.indexOf(this.nextGameGetKarte(name));
       this.naechstesSpiel.splice(index, 1);
-      
+
       return;
     }
-      
+
     this.naechstesSpiel = this.naechstesSpiel.filter((a) => a.name !== name);
-    
+
   }
 
   startGame(): void {
+    this.runde = 1;
     this.aktuellesSpiel = this.naechstesSpiel.filter((a) => a.position !== 0);
     this.aktuellesSpiel = this.getUniqueCards(this.aktuellesSpiel);
     if (!!this.aktuellesSpiel.find((karte) => karte.name === "Werwolf")) {
       this.aktuellesSpiel.find((karte) => karte.name === "Werwolf").anzahl =
-      this.naechstesSpiel.reduce((accumulator, current) => {
-        const wolf = current.name === "Werwolf" ? 1 : 0;
-        accumulator = accumulator + wolf;
-        
-        return accumulator;
-      }, 0);
+        this.naechstesSpiel.reduce((accumulator, current) => {
+          const wolf = current.name === "Werwolf" ? 1 : 0;
+          accumulator = accumulator + wolf;
+
+          return accumulator;
+        }, 0);
     }
-    
+
     this.aktuellesSpiel.sort((a1, a2) => a1.position - a2.position);
 
   }
@@ -98,4 +99,13 @@ export class KartenSpeicherService {
     return karten.filter((value, index, self) => self.indexOf(value) === index);
   }
 
+  getTurn(): number {
+    return this.runde;
+  }
+
+  increaseTurn(): number {
+    this.runde += 1;
+
+    return this.runde;
+  }
 }

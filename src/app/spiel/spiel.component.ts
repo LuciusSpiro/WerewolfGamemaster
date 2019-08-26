@@ -14,12 +14,14 @@ import * as application from "tns-core-modules/application";
 })
 export class SpielComponent implements OnInit {
     karten: Array<Ikarten>;
+    runde = 1;
     constructor(private kartenSpeicher: KartenSpeicherService, private appComponent: AppComponent, private router: Router) {
         this.appComponent.tabView.nativeElement.addEventListener(TabView.selectedIndexChangedEvent, () => {
             this.karten = this.kartenSpeicher.getCurrentGame();
+            this.runde = this.kartenSpeicher.getTurn();
         });
     }
-    ngOnInit() {
+    ngOnInit(): void {
         this.karten = this.kartenSpeicher.getCurrentGame();
         application.android.on(AndroidApplication.activityBackPressedEvent,
             (data: AndroidActivityBackPressedEventData) => {
@@ -30,14 +32,18 @@ export class SpielComponent implements OnInit {
             });
     }
 
-    next() {
+    next(): void {
         const first = this.karten.shift();
+        if (first.name === 'Dorfbewohner') {
+            this.runde = this.kartenSpeicher.increaseTurn();
+        }
         if (first && first.position >= 0) {
             this.karten.push(first);
         }
+
     }
 
-    killPerson(karte: Ikarten) {
+    killPerson(karte: Ikarten): void {
         this.kartenSpeicher.killPerson(karte);
         this.karten = this.kartenSpeicher.getCurrentGame();
     }

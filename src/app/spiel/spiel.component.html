@@ -1,5 +1,5 @@
 <ActionBar class="action-bar" backgroundColor="#272727" color="#fab856">
-    <Label class="action-bar-title" text="Laufende Runde"></Label>
+    <Label class="action-bar-title" [text]="'Runde ' + runde"></Label>
 </ActionBar>
 <DockLayout class="wgm-gameList">
     <button class="btn btn-primary btn-active wgm-gameList__button" text="Weiter" (tap)="next()" dock="bottom"></button>
