@@ -14,10 +14,12 @@ import * as application from "tns-core-modules/application";
 })
 export class SpielComponent implements OnInit {
     karten: Array<Ikarten>;
+    ersteKarte: Ikarten;
     runde = 1;
     constructor(private kartenSpeicher: KartenSpeicherService, private appComponent: AppComponent, private router: Router) {
         this.appComponent.tabView.nativeElement.addEventListener(TabView.selectedIndexChangedEvent, () => {
-            this.karten = this.kartenSpeicher.getCurrentGame();
+            [this.ersteKarte, ...this.karten] = this.kartenSpeicher.getCurrentGame();
+            console.log(this.ersteKarte);
             this.runde = this.kartenSpeicher.getTurn();
         });
     }
@@ -33,8 +35,9 @@ export class SpielComponent implements OnInit {
     }
 
     next(): void {
-        const first = this.karten.shift();
-        if (first.name === 'Dorfbewohner') {
+        const first = this.ersteKarte;
+        this.ersteKarte = this.karten.shift();
+        if (first && first.name === "Dorfbewohner") {
             this.runde = this.kartenSpeicher.increaseTurn();
         }
         if (first && first.position >= 0) {
@@ -45,7 +48,7 @@ export class SpielComponent implements OnInit {
 
     killPerson(karte: Ikarten): void {
         this.kartenSpeicher.killPerson(karte);
-        this.karten = this.kartenSpeicher.getCurrentGame();
+        [this.ersteKarte, ...this.karten] = this.kartenSpeicher.getCurrentGame();
     }
 
     getAnzahl(karte: Ikarten): string {
