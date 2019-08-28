@@ -19,7 +19,6 @@ export class SpielComponent implements OnInit {
     constructor(private kartenSpeicher: KartenSpeicherService, private appComponent: AppComponent, private router: Router) {
         this.appComponent.tabView.nativeElement.addEventListener(TabView.selectedIndexChangedEvent, () => {
             [this.ersteKarte, ...this.karten] = this.kartenSpeicher.getCurrentGame();
-            console.log(this.ersteKarte);
             this.runde = this.kartenSpeicher.getTurn();
         });
     }
@@ -42,6 +41,9 @@ export class SpielComponent implements OnInit {
         }
         if (first && first.position >= 0) {
             this.karten.push(first);
+        }
+        if (first && first.position < 0) {
+            this.killPerson(first);
         }
 
     }

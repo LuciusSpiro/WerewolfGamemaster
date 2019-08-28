@@ -2,10 +2,10 @@
     <Label class="action-bar-title" [text]="'Runde ' + runde"></Label>
 </ActionBar>
 <DockLayout class="wgm-gameList">
-    <FlexboxLayout *ngIf="ersteKarte" dock="top" [justifyContent]="ersteKarte.name === 'Dorfbewohner' ? 'center' : 'space-between'" [nsRouterLink]="['../karte', ersteKarte.name]" class="wgm-gameList__list">
+    <FlexboxLayout *ngIf="ersteKarte" dock="top" [justifyContent]="ersteKarte.name === 'Dorfbewohner' ? 'center' : 'space-between'" [nsRouterLink]="['../karte', ersteKarte.name]" class="wgm-gameList__list wgm-gameList-first-card">
         <Label [text]='ersteKarte.name' *ngIf="ersteKarte.name !== 'Dorfbewohner'" marginLeft="35px" class="wgm-gameList__name wgm-gameList__item"></Label>
         <Label [text]='getAnzahl(ersteKarte)' *ngIf="ersteKarte.name !== 'Dorfbewohner'" class="wgm-gameList__amount wgm-gameList__item"></Label>
-        <button *ngIf="ersteKarte.name !== 'Dorfbewohner'" text="Tod" (tap)="killPerson(ersteKarte)" class="wgm-gameList__kill-button"></button>
+        <button *ngIf="ersteKarte.name !== 'Dorfbewohner'" text="Tod" (tap)="killPerson(ersteKarte)" class="wgm-gameList__kill-button wgm-gameList-first-card__button"></button>
         <Label text='Ein neuer Tag bricht an' *ngIf="ersteKarte.name === 'Dorfbewohner'" class="wgm-gameList__new-day wgm-gameList__item"></Label>
     </FlexboxLayout>
 

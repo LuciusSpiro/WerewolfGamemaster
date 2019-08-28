@@ -6,11 +6,12 @@
         color: #ffffff;
     }
     &__name {
-        width: 20%;
+        margin-top: 15;
+        width: 45%;
     }
     &__amount {
-        width: 50%;
-        text-align: center;
+        margin-top: 15;
+        width: 30%;
     }
     &__container {
         align-content: center;
@@ -19,5 +20,20 @@
     &__kill-button {
         width: 20%;
         background-color: rgba(202, 2, 2, 0.856);
+    }
+}
+
+.wgm-gameList-first-card {
+    margin: 10 15;
+    padding: 10 15;
+    height: 15%;
+    color: #fab856;
+    width: 95%;
+    background-color: #272727;
+    &__button {
+        width: 20%;
+    }
+    .wgm-gameList__new-day {
+        margin-top: 10
     }
 }
