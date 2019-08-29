@@ -4,7 +4,8 @@
         "position": 99,
         "gut": true,
         "path": "~/assets/dorfbewohner.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Werwolf",
@@ -12,7 +13,8 @@
         "position": 2,
         "gut": false,
         "path": "~/assets/werwolf.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Hexe",
@@ -20,7 +22,8 @@
         "position": 3,
         "gut": true,
         "path": "~/assets/hexe.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Jäger",
@@ -28,7 +31,8 @@
         "position": 0,
         "gut": true,
         "path": "~/assets/jaeger.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Amor",
@@ -36,7 +40,8 @@
         "position": -1,
         "gut": true,
         "path": "~/assets/amor.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Dieb",
@@ -44,7 +49,8 @@
         "position": -10,
         "gut": true,
         "path": "~/assets/dieb.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Mädchen",
@@ -52,7 +58,8 @@
         "position": -2,
         "gut": true,
         "path": "~/assets/kleinesmaedchen.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Seherin",
@@ -60,7 +67,8 @@
         "position": 6,
         "gut": true,
         "path": "~/assets/seherin.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Alter Mann",
@@ -68,7 +76,8 @@
         "position": -3,
         "gut": true,
         "path": "~/assets/altermann.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Bärenführer",
@@ -76,7 +85,8 @@
         "position": -4,
         "gut": true,
         "path": "~/assets/baerenfuehrer.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Dorfdepp",
@@ -84,7 +94,8 @@
         "position": -5,
         "gut": true,
         "path": "~/assets/dorfdepp.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Flötenspieler",
@@ -92,7 +103,8 @@
         "position": 9,
         "gut": true,
         "path": "~/assets/floetenspieler.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": "Konvertiert 2 Spieler"
     },
     {
         "name": "Fuchs",
@@ -100,7 +112,8 @@
         "position": 8,
         "gut": true,
         "path": "~/assets/fuchs.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Der große, böse Wolf",
@@ -108,7 +121,8 @@
         "position": 7,
         "gut": false,
         "path": "~/assets/grosserwolf.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": "Darf nochmal töten bis ein Werwolf stirbt"
     },
     {
         "name": "Heiler",
@@ -116,7 +130,8 @@
         "position": 1,
         "gut": true,
         "path": "~/assets/heiler.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": "Schützt einen Spieler"
     },
     {
         "name": "Rostiger Ritter",
@@ -124,7 +139,8 @@
         "position": -6,
         "gut": true,
         "path": "~/assets/rostigerritter.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Sündenbock",
@@ -132,7 +148,8 @@
         "position": -7,
         "gut": true,
         "path": "~/assets/suendenbock.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Der Urwolf",
@@ -140,7 +157,8 @@
         "position": 4,
         "gut": false,
         "path": "~/assets/urwolf.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": "Einmal Opfer in Werwolf verwandlen."
     },
     {
         "name": "Der weiße Werwolf",
@@ -148,7 +166,8 @@
         "position": 5,
         "gut": false,
         "path": "~/assets/weisserwolf.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": "Wacht jede 2. Nacht nochmal auf"
     },
     {
         "name": "Das wild Kind",
@@ -156,7 +175,8 @@
         "position": -8,
         "gut": true,
         "path": "~/assets/wildeskind.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     },
     {
         "name": "Der Wolfshund",
@@ -164,6 +184,7 @@
         "position": -9,
         "gut": false,
         "path": "~/assets/wolfshund.png",
-        "anzahl": 1
+        "anzahl": 1,
+        "info": ""
     }
 ]

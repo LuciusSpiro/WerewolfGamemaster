@@ -5,4 +5,5 @@ export interface Ikarten {
     gut: boolean;
     path: string;
     anzahl: number;
+    info: string;
 }
