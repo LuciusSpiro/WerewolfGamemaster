@@ -1,7 +1,7 @@
 [{
         "name": "Dorfbewohner",
         "text": "Ein einfacher Bewohner des Dorfes ohne Sonderfähigkeiten.",
-        "position": 99,
+        "position": 100,
         "gut": true,
         "path": "~/assets/dorfbewohner.png",
         "anzahl": 1,
@@ -10,25 +10,25 @@
     {
         "name": "Werwolf",
         "text": "Die Werwölfe machen Jagd auf die Dorfbewohner und bringen jede Nacht durch Abstimmung einen davon um.",
-        "position": 2,
+        "position": 30,
         "gut": false,
         "path": "~/assets/werwolf.png",
         "anzahl": 1,
-        "info": ""
+        "info": "Bestimmen ein Opfer"
     },
     {
         "name": "Hexe",
         "text": "Die Hexe erwacht immer direkt nachdem die Werwölfe ihr Opfer ausgesucht haben. Sie hat im Verlauf des gesamten Spiels einen Gift- und einen Heiltrank. Der Spielleiter zeigt auf die Person, die von den Werwölfen als Mordopfer gewählt wurde, und die Hexe kann diese mit ihrem Heiltrank heilen (auch sich selbst), so dass es am nächsten Morgen keinen Toten gibt. Sie kann aber auch den Gifttrank auf einen anderen Spieler anwenden; dann gibt es mehrere Tote.",
-        "position": 3,
+        "position": 70,
         "gut": true,
         "path": "~/assets/hexe.png",
         "anzahl": 1,
-        "info": ""
+        "info": "Heiltrank und Gifttrank"
     },
     {
         "name": "Jäger",
         "text": " Scheidet der Jäger aus dem Spiel aus, feuert er in seinem letzten Atemzug noch einen Schuss ab, mit dem er einen Spieler seiner Wahl mit in den Tod reißt, d. h. er bestimmt einen Spieler, der mit ihm aus dem Spiel ausscheidet.",
-        "position": 0,
+        "position": -80,
         "gut": true,
         "path": "~/assets/jaeger.png",
         "anzahl": 1,
@@ -37,16 +37,16 @@
     {
         "name": "Amor",
         "text": "Amor erwacht nur einmal in der allerersten Nacht, um zwei Spieler seiner Wahl miteinander zu verkuppeln (eventuell auch sich selbst). Danach schläft er wieder ein. Anschließend berührt der Spielleiter die beiden Verliebten an der Schulter, sodass diese kurz erwachen können und wissen, wer der jeweilige Partner ist. Die Verliebten haben im Laufe des Spiels die Aufgabe, den Partner zu beschützen, denn wenn einer der beiden stirbt, macht es ihm der Partner trauernd nach; sie dürfen nie gegeneinander stimmen.",
-        "position": -1,
+        "position": -10,
         "gut": true,
         "path": "~/assets/amor.png",
         "anzahl": 1,
-        "info": ""
+        "info": "Erwählt ein Liebespaar"
     },
     {
         "name": "Dieb",
         "text": "Der Dieb ist der erste, der im Spiel erwacht. Wird mit Dieb gespielt, werden zwei Karten mehr ausgeteilt. Der Dieb darf diese ansehen und seine Karte gegen eine der beiden übrig gebliebenen Karten austauschen. Er hat ab jetzt also eine neue Rolle. Möchte er nicht tauschen, ist er für den Rest des Spiels einfacher Dorfbewohner. (Bleiben am Ende zwei Werwölfe übrig, muss der Dieb seine Karte tauschen, da die Werwölfe sonst im Spiel keine realistische Chance hätten.)",
-        "position": -10,
+        "position": -110,
         "gut": true,
         "path": "~/assets/dieb.png",
         "anzahl": 1,
@@ -55,7 +55,7 @@
     {
         "name": "Mädchen",
         "text": "Das kleine Mädchen darf nachts in der Werwolf-Phase heimlich blinzeln, um so die Werwölfe zu erkennen. Die Werwölfe ihrerseits hingegen achten natürlich darauf, das Mädchen dabei zu ertappen, es besteht also beim Blinzeln ein gewisses Risiko.",
-        "position": -2,
+        "position": -90,
         "gut": true,
         "path": "~/assets/kleinesmaedchen.png",
         "anzahl": 1,
@@ -64,16 +64,16 @@
     {
         "name": "Seherin",
         "text": "Die Seherin erwacht, während alle anderen schlafen und darf sich eine Person aussuchen, deren Rolle ihr der Spielleiter offenbaren soll. Dabei sollte der Spielleiter möglichst unauffällig vorgehen, idealerweise wiederum durch Gesten, so dass die Schlafenden nicht hören und raten können, welche Person erwählt wurde. Da die Seherin zu jeder Runde die Rolle einer weiteren Person im Spiel kennt, kann sie großen Einfluss nehmen, muss aber ihr Wissen vorsichtig einsetzen.",
-        "position": 6,
+        "position": 80,
         "gut": true,
         "path": "~/assets/seherin.png",
         "anzahl": 1,
-        "info": ""
+        "info": "Erfährt die Rolle einer Person"
     },
     {
         "name": "Alter Mann",
         "text": "Der alte Mann stirbt nicht, wenn er zum ersten mal von den Werwölfen gefressen wird.",
-        "position": -3,
+        "position": -70,
         "gut": true,
         "path": "~/assets/altermann.png",
         "anzahl": 1,
@@ -82,7 +82,7 @@
     {
         "name": "Bärenführer",
         "text": "Wenn sich der Bärenführer am Morgen unmittelbar neben einem Werwolf befindet, zeigt der Spielleiter (Bär) dies durch ein Knurren.",
-        "position": -4,
+        "position": -100,
         "gut": true,
         "path": "~/assets/baerenfuehrer.png",
         "anzahl": 1,
@@ -91,7 +91,7 @@
     {
         "name": "Dorfdepp",
         "text": "Wird der Dorfdepp vom Dorfgericht als Opfer auserkoren, erkennen sie im letzten Moment, dass es sich nur um den Dorfdepp handelt. Der Dorfdepp darf weiter leben, hat aber nun kein Abstimmungsrecht mehr.",
-        "position": -5,
+        "position": -60,
         "gut": true,
         "path": "~/assets/dorfdepp.png",
         "anzahl": 1,
@@ -100,7 +100,7 @@
     {
         "name": "Flötenspieler",
         "text": "Der Flötenspieler ist eine eigene Partei und kann nur alleine das Spiel gewinnen, außer er ist verliebt. Er erwacht immer am Ende jeder Nacht und bestimmt zwei Spieler, die er mit seiner Musik verzaubert. Anschließend schläft er ein und alle verzauberten Spieler erwachen, erkennen sich und schlafen ebenfalls wieder ein. Der Flötenspieler gewinnt das Spiel alleine, wenn alle anderen Spieler verzaubert sind.",
-        "position": 9,
+        "position": 90,
         "gut": true,
         "path": "~/assets/floetenspieler.png",
         "anzahl": 1,
@@ -109,7 +109,7 @@
     {
         "name": "Fuchs",
         "text": "Wenn er in der Nacht aufgerufen wird, wählt er einen Spieler aus und erfährt vom Spielleiter, ob dieser oder einer seiner beiden Nachbarn ein Werwolf ist oder nicht. Ist bei dem Trio mindestens ein Werwolf dabei, darf er es in der nächsten Nacht ein weiteres Mal versuchen. Ist aber keiner der drei ein Werwolf, verliert er seine Fähigkeit.",
-        "position": 8,
+        "position": 10,
         "gut": true,
         "path": "~/assets/fuchs.png",
         "anzahl": 1,
@@ -118,7 +118,7 @@
     {
         "name": "Der große, böse Wolf",
         "text": "Der große böse Wolf ist ein Wolf, der in der Nacht zweimal tötet. Er einigt sich zunächst mit den anderen Wölfen auf ein Opfer, dann wählt er sich allein ein zweites Opfer. Diese Rolle ist bei großen Gruppen geeignet oder für schnelle Runden. Der große böse Wolf verliert seine Macht, sobald ein Werwolf getötet wurde.",
-        "position": 7,
+        "position": 60,
         "gut": false,
         "path": "~/assets/grosserwolf.png",
         "anzahl": 1,
@@ -127,7 +127,7 @@
     {
         "name": "Heiler",
         "text": " Der Heiler erwacht am Anfang jeder Nacht und bestimmt einen Spieler (auch sich selbst), den er vor den Werwölfen beschützen will. Selbst wenn der ausgewählte Spieler von den Werwölfen gebissen wird, stirbt er nicht. Es ist nicht erlaubt, zwei Runden hintereinander denselben Charakter zu schützen, da dieser sonst unsterblich wäre.",
-        "position": 1,
+        "position": 20,
         "gut": true,
         "path": "~/assets/heiler.png",
         "anzahl": 1,
@@ -136,7 +136,7 @@
     {
         "name": "Rostiger Ritter",
         "text": "Der Spielleiter und der Richter einigen sich in der ersten Nacht auf ein Zeichen. Wenn der Richter nach der regulären Abstimmung des Dorfes und dem Tod eines Spielers dieses Zeichen gibt, führt der Spielleiter sofort noch eine Abstimmung durch.",
-        "position": -6,
+        "position": -50,
         "gut": true,
         "path": "~/assets/rostigerritter.png",
         "anzahl": 1,
@@ -145,7 +145,7 @@
     {
         "name": "Sündenbock",
         "text": "Immer wenn es im Dorf zu einer Pattsituation während der Abstimmung kommt, trifft es sofort den Sündenbock. Allerdings bleibt ihm ein Vorrecht: Er darf entscheiden, wer am nächsten Tag abstimmen darf.",
-        "position": -7,
+        "position": -40,
         "gut": true,
         "path": "~/assets/suendenbock.png",
         "anzahl": 1,
@@ -154,7 +154,7 @@
     {
         "name": "Der Urwolf",
         "text": " Er ist ein Werwolf, der einmalig einen Spieler statt zu fressen in einen Werwolf verwandeln kann. Er signalisiert dem Spielleiter heimlich, nach der Entscheidung aller Werwölfe, wenn eine Umwandlung stattfinden soll.",
-        "position": 4,
+        "position": 40,
         "gut": false,
         "path": "~/assets/urwolf.png",
         "anzahl": 1,
@@ -163,7 +163,7 @@
     {
         "name": "Der weiße Werwolf",
         "text": "Der weiße Werwolf wacht jede Runde zusammen mit den anderen Werwölfen auf und verhält sich normal. Zusätzlich wacht er aber jede zweite Runde erneut gesondert auf und kann, wenn er möchte, einen der anderen Werwölfe töten. Sein Ziel ist es, als einziger zu überleben.",
-        "position": 5,
+        "position": 50,
         "gut": false,
         "path": "~/assets/weisserwolf.png",
         "anzahl": 1,
@@ -172,19 +172,19 @@
     {
         "name": "Das wild Kind",
         "text": "Das wilde Kind sucht sich zu Beginn des Spiel einen Patron aus. Wenn dieser stirbt wird das wilde Kind zu einem Werwolf.",
-        "position": -8,
+        "position": -30,
         "gut": true,
         "path": "~/assets/wildeskind.png",
         "anzahl": 1,
-        "info": ""
+        "info": "Wählte einen Patron"
     },
     {
         "name": "Der Wolfshund",
         "text": "Wenn er vom Spielleiter aufgerufen wird, kann er entscheiden, ob er zum Werwolf werden oder Dorfbewohner bleiben möchte. Seine Wahl wird auch nach seinem Tod nicht bekannt werden.",
-        "position": -9,
+        "position": -20,
         "gut": false,
         "path": "~/assets/wolfshund.png",
         "anzahl": 1,
-        "info": ""
+        "info": "Wählt zwischen Werwolf und Bewohner"
     }
 ]
