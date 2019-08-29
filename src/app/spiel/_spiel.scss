@@ -24,16 +24,33 @@
 }
 
 .wgm-gameList-first-card {
+    flex-wrap: wrap;
     margin: 10 15;
     padding: 10 15;
-    height: 15%;
+    min-height: 15%;
     color: #fab856;
     width: 95%;
     background-color: #272727;
     &__button {
         width: 20%;
+        color: #ffffff;
+        height: 40;
+    }
+    &__name {
+        margin-top: 10;
+        width: 30%;
+    }
+    &__amount {
+        margin-top: 10;
+        width: 10%;
+    }
+    &__info {
+        text-align: center;
+        width: 100%;
+        color: #DDDDDD;
+        padding: 5 0;
     }
     .wgm-gameList__new-day {
-        margin-top: 10
+        padding: 10 0;
     }
 }
