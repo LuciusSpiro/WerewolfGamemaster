@@ -135,7 +135,7 @@
     },
     {
         "name": "Rostiger Ritter",
-        "text": "Der Spielleiter und der Richter einigen sich in der ersten Nacht auf ein Zeichen. Wenn der Richter nach der regulären Abstimmung des Dorfes und dem Tod eines Spielers dieses Zeichen gibt, führt der Spielleiter sofort noch eine Abstimmung durch.",
+        "text": "Der Spielleiter und der rostige Ritter einigen sich in der ersten Nacht auf ein Zeichen. Wenn der rostige Ritter nach der regulären Abstimmung des Dorfes und dem Tod eines Spielers dieses Zeichen gibt, führt der Spielleiter sofort noch eine Abstimmung durch.",
         "position": -50,
         "gut": true,
         "path": "~/assets/rostigerritter.png",
