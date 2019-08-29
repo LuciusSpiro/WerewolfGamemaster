@@ -34,10 +34,16 @@ export class SpielComponent implements OnInit {
     }
 
     next(): void {
-        const first = this.ersteKarte;
+        let first = this.ersteKarte;
         this.ersteKarte = this.karten.shift();
         if (first && first.name === "Dorfbewohner") {
             this.runde = this.kartenSpeicher.increaseTurn();
+        }
+        if (this.ersteKarte && this.ersteKarte.name === "Der weiße Werwolf" && this.runde % 2 === 1) {
+            this.karten.push(first);
+            this.next();
+
+            return;
         }
         if (first && first.position >= 0) {
             this.karten.push(first);
