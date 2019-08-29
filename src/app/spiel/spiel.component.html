@@ -4,9 +4,8 @@
 <DockLayout class="wgm-gameList">
     <FlexboxLayout *ngIf="ersteKarte" dock="top" [justifyContent]="ersteKarte.name === 'Dorfbewohner' ? 'center' : 'space-between'" [nsRouterLink]="['../karte', ersteKarte.name]" class="wgm-gameList__list wgm-gameList-first-card">
         <Label [text]='ersteKarte.name' *ngIf="ersteKarte.name !== 'Dorfbewohner'" marginLeft="35px" class="wgm-gameList-first-card__name"></Label>
-        <Label [text]='getAnzahl(ersteKarte)' *ngIf="ersteKarte.name !== 'Dorfbewohner'" class="wgm-gameList-first-card__amount"></Label>
         <button *ngIf="ersteKarte.name !== 'Dorfbewohner'" text="Tod" (tap)="killPerson(ersteKarte)" class="wgm-gameList__kill-button wgm-gameList-first-card__button"></button>
-        <Label [text]="ersteKarte.info" *ngIf="ersteKarte.name !== 'Dorfbewohner'" class="wgm-gameList-first-card__info"></Label>
+        <Label [text]="ersteKarte.info" *ngIf="ersteKarte.name !== 'Dorfbewohner' && ersteKarte.info" class="wgm-gameList-first-card__info"></Label>
         <Label text='Ein neuer Tag bricht an' *ngIf="ersteKarte.name === 'Dorfbewohner'" class="wgm-gameList__new-day"></Label>
     </FlexboxLayout>
 
