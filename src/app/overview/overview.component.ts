@@ -13,6 +13,10 @@ export class OverviewComponent implements OnInit {
     karten: Array<Ikarten>;
     constructor(private kartenSpeicher: KartenSpeicherService,
         private appComponent: AppComponent) {
+        this.appComponent.tabView.nativeElement.addEventListener(TabView.selectedIndexChangedEvent, () => {
+            this.karten = this.kartenSpeicher.getOverviewGame();
+            console.log(this.karten);
+        });
 
     }
     ngOnInit(): void {

@@ -11,6 +11,7 @@ export class KartenSpeicherService {
   alleKarten: Array<Ikarten>;
   naechstesSpiel: Array<Ikarten>;
   aktuellesSpiel: Array<Ikarten>;
+  uebersichtSpiel: Array<Ikarten>;
 
   constructor() {
     this.aktuellesSpiel = [];
@@ -68,6 +69,7 @@ export class KartenSpeicherService {
 
   startGame(): void {
     this.runde = 1;
+    this.uebersichtSpiel = [...this.naechstesSpiel];
     this.aktuellesSpiel = this.naechstesSpiel.filter((a) => a.position !== 0);
     this.aktuellesSpiel = this.getUniqueCards(this.aktuellesSpiel);
     if (!!this.aktuellesSpiel.find((karte) => karte.name === "Werwolf")) {
@@ -86,6 +88,9 @@ export class KartenSpeicherService {
 
   getCurrentGame(): Array<Ikarten> {
     return this.aktuellesSpiel;
+  }
+  getOverviewGame(): Array<Ikarten> {
+    return this.uebersichtSpiel;
   }
 
   killPerson(karte: Ikarten) {
