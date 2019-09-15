@@ -1,0 +1,52 @@
+.wgm-gameList {
+    background-color: #464646;
+    &__list {
+        flex-direction: row;
+        align-content: space-between;
+        color: #ffffff;
+    }
+    &__name {
+        margin-top: 15;
+        width: 45%;
+    }
+    &__amount {
+        margin-top: 15;
+        width: 30%;
+    }
+    &__container {
+        align-content: center;
+        height: 100px;
+    }
+    &__kill-button {
+        width: 20%;
+        background-color: rgba(202, 2, 2, 0.856);
+    }
+}
+
+.wgm-gameList-first-card {
+    flex-wrap: wrap;
+    margin: 10 15;
+    padding: 10 15;
+    min-height: 15%;
+    color: #fab856;
+    width: 95%;
+    background-color: #272727;
+    &__button {
+        width: 20%;
+        color: #ffffff;
+        height: 40;
+    }
+    &__name {
+        margin-top: 10;
+        width: 65%;
+    }
+    &__info {
+        text-align: center;
+        width: 100%;
+        color: #DDDDDD;
+        padding: 5 0;
+    }
+    .wgm-gameList__new-day {
+        padding: 10 0;
+    }
+}
