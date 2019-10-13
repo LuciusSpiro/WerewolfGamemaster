@@ -3,6 +3,7 @@ import { KartenSpeicherService } from "../kartenSpeicher/karten-speicher.service
 import { Ikarten } from "../interface/iKarten";
 import { TabView } from "tns-core-modules/ui/tab-view/tab-view";
 import { AppComponent } from "../app.component";
+import { TextField } from "tns-core-modules/ui/text-field";
 
 @Component({
     selector: "Overview",
@@ -15,11 +16,19 @@ export class OverviewComponent implements OnInit {
         private appComponent: AppComponent) {
         this.appComponent.tabView.nativeElement.addEventListener(TabView.selectedIndexChangedEvent, () => {
             this.karten = this.kartenSpeicher.getOverviewGame();
-            console.log(this.karten);
+
         });
 
     }
     ngOnInit(): void {
-        //this.karten = this.kartenSpeicher.getOverviewGame();
+        // this.karten = this.kartenSpeicher.getOverviewGame();
+    }
+    onBlur(event, karte: Ikarten): void {
+        const textField = <TextField>event.object;
+
+        karte.spieler = textField.text;
+    }
+    resetName(karte: Ikarten) {
+        karte.spieler = "";
     }
 }

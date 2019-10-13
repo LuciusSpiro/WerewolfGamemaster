@@ -6,4 +6,5 @@ export interface Ikarten {
     path: string;
     anzahl: number;
     info: string;
+    spieler: string;
 }

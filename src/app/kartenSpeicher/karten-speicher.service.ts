@@ -16,6 +16,7 @@ export class KartenSpeicherService {
   constructor() {
     this.aktuellesSpiel = [];
     this.naechstesSpiel = [];
+    this.uebersichtSpiel = [];
     this.alleKarten = alleKarten;
   }
 
@@ -33,12 +34,14 @@ export class KartenSpeicherService {
 
   resetGame(): void {
     this.naechstesSpiel = [];
+    this.uebersichtSpiel = [];
   }
 
   addKarte(name: string): void {
-    let karte = this.getKarte(name);
+    const karte = this.getKarte(name);
 
     this.naechstesSpiel.push(karte);
+    this.uebersichtSpiel.push({ ...karte });
   }
 
   nextGameContains(name: string): boolean {
@@ -50,9 +53,12 @@ export class KartenSpeicherService {
   }
 
   removeKarte(name: string): void {
+    const index = this.naechstesSpiel.indexOf(this.nextGameGetKarte(name));
+    this.naechstesSpiel.splice(index, 1);
+
     if (name === "Werwolf") {
-      const index = this.naechstesSpiel.indexOf(this.nextGameGetKarte(name));
-      this.naechstesSpiel.splice(index, 1);
+      const index = this.uebersichtSpiel.indexOf(this.nextGameGetKarte(name));
+      this.uebersichtSpiel.splice(index, 1);
 
       return;
     }
@@ -69,7 +75,6 @@ export class KartenSpeicherService {
 
   startGame(): void {
     this.runde = 1;
-    this.uebersichtSpiel = [...this.naechstesSpiel];
     this.aktuellesSpiel = this.naechstesSpiel.filter((a) => a.position !== 0);
     this.aktuellesSpiel = this.getUniqueCards(this.aktuellesSpiel);
     if (!!this.aktuellesSpiel.find((karte) => karte.name === "Werwolf")) {
