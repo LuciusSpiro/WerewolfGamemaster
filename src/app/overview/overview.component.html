@@ -6,10 +6,10 @@
         <ListView [items]="karten" class="list-group">
             <ng-template let-item="item">
                 <FlexboxLayout justifyContent="space-between" alignItems="center" class="wgm-gameList__list">
-                    <Label [text]='item.name' marginLeft="35px" class="wgm-overview__name wgm-gameList__item"></Label>
-                    <Label *ngIf="item.spieler" [text]="item.spieler" (tap)="resetName(item)" class="wgm-overview__spielername"></Label>
-                    <TextField *ngIf="!item.spieler" (blur)="onBlur($event, item)" class="wgm-overview__textfield"></TextField>
-                    <button text="Tod" class="wgm-gameList__kill-button"></button>
+                    <Label [text]='item.name' *ngIf="item.name !== 'Dorfbewohner'" marginLeft="35px" class="wgm-overview__name wgm-gameList__item"></Label>
+                    <Label *ngIf="item.spieler && item.name !== 'Dorfbewohner'" [text]="item.spieler" (tap)="resetName(item)" class="wgm-overview__spielername"></Label>
+                    <TextField *ngIf="!item.spieler && item.name !== 'Dorfbewohner'" (blur)="onBlur($event, item)" class="wgm-overview__textfield"></TextField>
+                    <button *ngIf="item.name !== 'Dorfbewohner'" text="Tod" class="wgm-gameList__kill-button" (tap)="deleteEntry(item)"></button>
                 </FlexboxLayout>
             </ng-template>
         </ListView>

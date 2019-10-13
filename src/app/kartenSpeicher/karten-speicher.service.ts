@@ -53,12 +53,12 @@ export class KartenSpeicherService {
   }
 
   removeKarte(name: string): void {
-    const index = this.naechstesSpiel.indexOf(this.nextGameGetKarte(name));
-    this.naechstesSpiel.splice(index, 1);
+    const index = this.uebersichtSpiel.indexOf(this.nextGameGetKarte(name));
+    this.uebersichtSpiel.splice(index, 1);
 
     if (name === "Werwolf") {
-      const index = this.uebersichtSpiel.indexOf(this.nextGameGetKarte(name));
-      this.uebersichtSpiel.splice(index, 1);
+      const index = this.naechstesSpiel.indexOf(this.nextGameGetKarte(name));
+      this.naechstesSpiel.splice(index, 1);
 
       return;
     }
@@ -71,6 +71,14 @@ export class KartenSpeicherService {
 
     this.naechstesSpiel = this.naechstesSpiel.filter((a) => a.name !== name);
 
+  }
+
+  removeKarteFromOverview(karte: Ikarten): Array<Ikarten> {
+    if (karte.spieler !== "") {
+      this.uebersichtSpiel = this.uebersichtSpiel.filter((a) => a.spieler !== karte.spieler);
+
+      return this.uebersichtSpiel;
+    }
   }
 
   startGame(): void {

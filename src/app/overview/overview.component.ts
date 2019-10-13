@@ -28,7 +28,10 @@ export class OverviewComponent implements OnInit {
 
         karte.spieler = textField.text;
     }
-    resetName(karte: Ikarten) {
+    resetName(karte: Ikarten): void {
         karte.spieler = "";
+    }
+    deleteEntry(karte: Ikarten): void {
+        this.karten = this.kartenSpeicher.removeKarteFromOverview(karte);
     }
 }
